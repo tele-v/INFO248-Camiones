@@ -1,0 +1,200 @@
+<%- include ('partials/_masterHeader'); %>
+
+<script>
+    $("#buttonTrucks").attr("aria-pressed", "true");
+</script>
+
+<!-- Page Content -->
+<div class="container-fluid">
+    <h1>Camiones</h1>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalcamiones">
+        Añadir nuevo Camión
+    </button>
+
+<!--        <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <button type="submit">Guardar</button>
+        </form>-->
+    
+    <!-- Inicio Modal -->
+    <div class="modal fade" id="modalcamiones" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+
+                <!-- Modal header-->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Registrar Camiones</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!-- Modal body-->
+                <div class="modal-body">
+
+                    <form class="text-center p-3 row container-fluid" action="/addTruck" data-toggle="validator" method="POST">
+
+                        <div class="md-form form-sm col-sm-4">
+                            <input type="string" style="text-transform:uppercase" name="patente" class="form-control form-control-sm" maxlength="6" pattern="[A-Za-z]{4||2}[0-9]{2||4}" required>
+                            <label for="patente">Patente</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-4">
+                            <input type="text" style="text-transform:uppercase" name="marca" class="form-control form-control-sm" required>
+                            <label for="marca">Marca</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-4">
+                            <input type="string" style="text-transform:uppercase" name="modelo" class="form-control form-control-sm" required>
+                            <label for="modelo">Modelo</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-3">
+                            <input type="text" style="text-transform:uppercase" name="color" class="form-control form-control-sm" required>
+                            <label for="color">Color</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-3">
+                            <input type="number" name="ano" class="form-control form-control-sm" min="1950" max="2100" required>
+                            <label for="ano">Año</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-3">
+                            <input type="string" style="text-transform:uppercase" name="config" class="form-control form-control-sm" required>
+                            <label for="config">Configuración</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-3">
+                            <input type="number" name="km" class="form-control form-control-sm" min="0" max="3000000">
+                            <label for="km">Kilometraje</label>
+                        </div>
+
+
+                        <!-- Compañia Seguros-->
+                        <div class="md-form form-sm col-sm-6">
+
+                        <select class="custom-select" name="cias" required>
+                        <option selected disabled value="">Seleccionar</option>
+                        <option>Liberty Seguros</option>
+                        <option>Otro Seguro</option>
+                        </select>
+                        <label for="validationTooltip04">Compañía de Seguros</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-6">
+                            <input type="text" name="poliza" class="form-control form-control-sm">
+                            <label for="poliza">N° de Póliza</label>
+                        </div>
+
+                        <div class="custom-file col-sm-4 md-form">
+                            <label>Fecha Vencimiento Seguro</label>
+                        </div>
+
+                        <div class="md-form">
+                            <input type="date" name="vencseg" class="form-control" placeholder="Seleccionar Fecha"
+                                lang="es" required>
+                            <label data-error="wrong" data-success="right" for="vencseg"></label>
+                        </div>
+
+                        <div class="custom-file col-sm-9 md-form">
+                            <input type="file" class="custom-file-input" name="docseguro" lang="es">
+                            <label class="custom-file-label text-left " for="docseguro">Seguro</label>
+                        </div>
+
+                        <div class="custom-file col-sm-5 md-form">
+                            <label>Fecha Vencimiento Revisión Técnica</label>
+                        </div>
+
+                        <div class="md-form">
+                            <input type="date" name="vencrt" class="form-control" placeholder="Seleccionar Fecha"
+                                lang="es" required>
+                            <label data-error="wrong" data-success="right" for="vencrt"></label>
+                        </div>
+
+                        <div class="custom-file col-sm-9  md-form">
+                            <input type="file" class="custom-file-input" name="docrevision" lang="es">
+                            <label class="custom-file-label text-left" for="docrevision">Revisión</label>
+                        </div>
+
+                        <div class="custom-file col-sm-9  md-form">
+                            <input type="file" class="custom-file-input" name="docpc" lang="es">
+                            <label class="custom-file-label text-left" for="docpc">Permiso Circulación</label>
+                        </div>
+
+                        <div class="custom-file col-sm-9  md-form">
+                            <input type="file" class="custom-file-input" name="docpadron" lang="es">
+                            <label class="custom-file-label text-left" for="docpadron">Padrón</label>
+                        </div>
+
+                        <!-- Modal footer-->
+                        <div class="modal-footer container-fluid">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                        <!--Fin Modal-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Inicio Tabla-->
+
+    <!--Inicio Tabla Principal-->
+
+    <div class="table-responsive">
+
+        <table class="table table-hover table-bordered table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th scope="col">Patente</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Año</th>
+                    <th scope="col">Configuación</th>
+                    <th scope="col">Kilometraje</th>
+                    <th scope="col">Compañia de Seguros</th>
+                    <th scope="col">N° Póliza</th>
+                    <th scope="col">Vencimiento Seguro</th>
+                    <th scope="col">Vencimiento Revisión Técnica</th>
+                    <th scope="col">Opciones</th>
+                    <th scope="col">Seguro</th>
+                    <th scope="col">Revisión Técnica</th>
+                    <th scope="col">Permiso de Circulación</th>
+                    <th scope="col">Padrón</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i<camiones.length; i++){ %>
+                <tr>
+                    <td style="text-transform:uppercase"><%= camiones[i].patente  %></td>
+                    <td style="text-transform:uppercase"><%= camiones[i].marca  %></td>
+                    <td style="text-transform:uppercase"><%= camiones[i].modelo  %></td>
+                    <td style="text-transform:uppercase"><%= camiones[i].color  %></td>
+                    <td ><%= camiones[i].ano  %></td>
+                    <td style="text-transform:uppercase"><%= camiones[i].config  %></td>
+                    <td ><%= camiones[i].km  %></td>
+                    <td style="text-transform:uppercase"><%= camiones[i].cias  %></td>
+                    <td ><%= camiones[i].poliza  %></td>
+                    <td><%= camiones[i].vencseg  %></td>
+                    <td><%= camiones[i].vencrt  %></td>
+                    <td>
+                        <a href="/deleteTruck/<%= camiones[i]._id %>" class="btn btn-danger">Borrar</a>
+                        <a href="/master/editTruck/<%= camiones[i]._id %>" class="btn btn-info">Editar</a>
+                    </td>
+                    <td><%= camiones[i].docseguro  %></td>
+                    <td><%= camiones[i].docrevision  %></td>
+                    <td><%= camiones[i].docpc  %></td>
+                    <td><%= camiones[i].docpadron  %></td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include ('partials/_footer'); %>

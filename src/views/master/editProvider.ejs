@@ -1,0 +1,73 @@
+<%- include ('partials/_masterHeader'); %>
+    <form class="text-center p-3 row container-fluid" action="/editProvider/<%=proveedores._id%>" data-toggle="validator" method="POST">
+
+                        <div class="md-form form-sm col-sm-4">
+                            <input type="string" style="text-transform:uppercase" name="rut" class="form-control form-control-sm" value="<%=proveedores.rut%>" required>
+                            <label for="rut">Rut</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-4">
+                            <input type="string" style="text-transform:uppercase" name="nombre" class="form-control form-control-sm" value="<%=proveedores.nombre%>" required>
+                            <label for="nombre">Nombre o Razón Social</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-4">
+                            <input type="string" style="text-transform:uppercase" name="giro" class="form-control form-control-sm" value="<%=proveedores.giro%>" required>
+                            <label for="giro">Giro</label>
+                        </div>
+                        
+                        <div class="md-form form-sm col-sm-4">
+                            <input type="text" style="text-transform:uppercase" name="region" class="form-control form-control-sm" value="<%=proveedores.region%>" required>
+                            <label for="region">Región</label>
+                        </div>
+
+
+                        <div class="md-form form-sm col-sm-3">
+                            <input type="text" style="text-transform:uppercase" name="comuna" class="form-control form-control-sm" value="<%=proveedores.comuna%>"  required>
+                            <label for="comuna">Comuna</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-3">
+                            <input type="string" style="text-transform:uppercase" name="direccion" class="form-control form-control-sm" value="<%=proveedores.direccion%>" required>
+                            <label for="direccion">Dirección</label>
+                        </div>
+    
+                        
+                        <div class="md-form form-sm col-sm-3">
+                            <input type="text" style="text-transform:uppercase" name="representante" class="form-control form-control-sm" value="<%=proveedores.representante%>" required>
+                            <label for="representante">Nombre de Representante</label>
+                        </div>
+                        
+                        <div class="md-form form-sm col-sm-3">
+                            <input type="string" style="text-transform:uppercase" name="email" class="form-control form-control-sm" value="<%=proveedores.email%>" required>
+                            <label for="email">Email Representante</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-6">
+                            <input type="number" name="celular" class="form-control form-control-sm" value="<%=proveedores.celular%>">
+                            <label for="celular">Celular Representante</label>
+                        </div>
+  
+                        <div class="md-form form-sm col-sm-3">
+                            <input type="string" style="text-transform:uppercase" name="banco" class="form-control form-control-sm" value="<%=proveedores.banco%>" required>
+                            <label for="banco">Banco</label>
+                        </div>
+        
+                        <div class="md-form form-sm col-sm-3">
+                            <input type="string" style="text-transform:uppercase" name="tipo" class="form-control form-control-sm" value="<%=proveedores.tipo%>" required>
+                            <label for="tipo">Tipo de Cuenta</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-3">
+                            <input type="number" name="nrocuenta" class="form-control form-control-sm" value="<%=proveedores.nrocuenta%>" required>
+                            <label for="nrocuenta">N° Cuenta</label>
+                        </div>        
+        
+        <!-- Modal footer-->
+        <div class="modal-footer container-fluid">
+            <a href="/master/providers"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button></a>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+        <!--Fin Modal-->
+    </form>
+<%- include ('partials/_footer'); %>

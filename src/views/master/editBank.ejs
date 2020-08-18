@@ -1,0 +1,44 @@
+<%- include ('partials/_masterHeader'); %>
+    <form class="text-center p-3 row container-fluid" action="/editBank/<%=bancos._id%>" data-toggle="validator" method="POST">
+
+        
+                        <div class="md-form form-sm col-sm-4">
+                            <input type="string" style="text-transform:uppercase" name="rut" class="form-control form-control-sm" value="<%=bancos.rut%>" required>
+                            <label for="rut">Rut</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-4">
+                            <input type="string" style="text-transform:uppercase" name="nombre" class="form-control form-control-sm" value="<%=bancos.nombre%>" required>
+                            <label for="nombre">Nombre o Razón Social</label>
+                        </div>
+
+                        <div class="md-form form-sm col-sm-3">
+                            <input type="string" style="text-transform:uppercase" name="direccion" class="form-control form-control-sm" value="<%=bancos.direccion%>" required>
+                            <label for="direccion">Dirección</label>
+                        </div>
+    
+                        <div class="md-form form-sm col-sm-4">
+                            <input type="String" style="text-transform:uppercase" name="representante" class="form-control form-control-sm" value="<%=bancos.representante%>"required>
+                            <label for="representante">Representante</label>
+                        </div>
+                        
+                        <div class="md-form form-sm col-sm-6">
+                            <input type="number" name="celular" class="form-control form-control-sm" value="<%=bancos.celular%>">
+                            <label for="celular">N° Celular</label>
+                        </div>
+                        
+                        <div class="md-form form-sm col-sm-3">
+                            <input type="string"  name="email" class="form-control form-control-sm" value="<%=bancos.email%>" >
+                            <label for="email">Email</label>
+                        </div>
+                                    
+  
+        
+        <!-- Modal footer-->
+        <div class="modal-footer container-fluid">
+            <a href="/master/banks"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button></a>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+        <!--Fin Modal-->
+    </form>
+<%- include ('partials/_footer'); %>

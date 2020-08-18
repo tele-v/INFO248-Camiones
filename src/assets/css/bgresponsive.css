@@ -1,0 +1,7 @@
+body {
+
+background: url(../src/n2.jpg) no-repeat fixed center center #333;
+background-size: cover;
+background-blend-mode: soft-light
+
+}

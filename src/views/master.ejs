@@ -1,0 +1,30 @@
+<%- include ('partials/_header'); %>
+
+<nav class="navbar navbar-dark bg-primary">
+    <a href="/master/enterprises"><button type="button" class="btn btn-primary btn-block" data-toggle="button"
+            aria-pressed="false" autocomplete="off" id="buttonEnterprises">Empresas</button></a>
+    <a href="/master/clients"><button type="button" class="btn btn-primary btn-block" data-toggle="button"
+            aria-pressed="false" autocomplete="off" id="buttonClients">Clientes</button></a>
+    <a href="/master/providers"><button type="button" class="btn btn-primary btn-block" data-toggle="button"
+            aria-pressed="false" autocomplete="off" id="buttonProviders">Proveedores</button></a>
+    <a href="/master/trucks"><button type="button" class="btn btn-primary btn-block" data-toggle="button"
+            aria-pressed="false" autocomplete="off" id="buttonTrucks">Camiones</button></a>
+    <a href="/master/chasis"><button type="button" class="btn btn-primary btn-block" data-toggle="button"
+            aria-pressed="false" autocomplete="off" id="buttonChasis">Ramplas</button></a>
+    <a href="/master/workers"><button type="button" class="btn btn-primary btn-block" data-toggle="button"
+            aria-pressed="false" autocomplete="off" id="buttonWorkers">Trabajadores</button></a>
+    <a href="/master/banks"><button type="button" class="btn btn-primary btn-block" data-toggle="button"
+            aria-pressed="false" autocomplete="off" id="buttonBanks">Bancos</button></a>
+    <a href="/master/ensurance"><button type="button" class="btn btn-primary btn-block" data-toggle="button"
+            aria-pressed="false" autocomplete="off" id="buttonEnsurance">Cía. de seguros</button></a>
+</nav>
+
+<script>
+        $("#buttonMaster").attr("aria-pressed", "true");
+</script>
+
+<div class="container-fluid">
+    <h1>Maestro</h1>
+</div>
+
+<%- include ('partials/_footer'); %>

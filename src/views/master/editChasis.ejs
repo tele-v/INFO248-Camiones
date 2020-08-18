@@ -1,0 +1,109 @@
+<%- include ('partials/_masterHeader'); %>
+    <form class="text-center p-3 row container-fluid" action="/editTruck/<%=ramplas._id%>" data-toggle="validator" method="POST">
+
+        <div class="md-form form-sm col-sm-4">
+            <input type="string" style="text-transform:uppercase" name="patente" class="form-control form-control-sm" maxlength="6"
+                pattern="[A-Za-z]{4||2}[0-9]{2||4}" value="<%=ramplas.patente%>" required>
+            <label for="patente">Patente</label>
+        </div>
+
+        <div class="md-form form-sm col-sm-4">
+            <input type="text" style="text-transform:uppercase" name="marca" class="form-control form-control-sm" value="<%=ramplas.marca%>" required>
+            <label for="marca">Marca</label>
+        </div>
+
+        <div class="md-form form-sm col-sm-4">
+            <input type="string" style="text-transform:uppercase" name="tipo" class="form-control form-control-sm" value="<%=ramplas.tipo%>" required>
+            <label for="tipo">Tipo de Rampla</label>
+        </div>
+
+
+        <div class="md-form form-sm col-sm-3">
+            <input type="number" name="ano" class="form-control form-control-sm" min="1950" max="2100" value="<%=ramplas.ano%>" required>
+            <label for="ano">Año</label>
+        </div>
+
+        <div class="md-form form-sm col-sm-3">
+            <input type="string" style="text-transform:uppercase" name="config" class="form-control form-control-sm" required
+                value="<%=ramplas.config%>">
+            <label for="config">Configuración</label>
+        </div>
+        
+        <div class="md-form form-sm col-sm-3">
+            <input type="number" style="text-transform:uppercase" name="largo" class="form-control form-control-sm" value="<%=ramplas.largo%>" required>
+            <label for="largo">Largo Mts</label>
+        </div>
+
+        <div class="md-form form-sm col-sm-3">
+            <input type="number" name="capacidad" class="form-control form-control-sm" value="<%=ramplas.capacidad%>">
+            <label for="capacidad">Capacidad M3</label>
+        </div>
+
+
+               <!-- Compañia Seguros-->
+        <div class="md-form form-sm col-sm-6">
+
+        <select class="custom-select" name="cias" required>
+        <option selected disabled value="<%=ramplas.cias%>">Seleccionar</option>
+        <option>Liberty Seguros</option>
+        <option>Otro Seguro</option>
+        </select>
+        <label for="validationTooltip04">Compañía de Seguros</label>
+        </div>
+
+        
+        <div class="md-form form-sm col-sm-6">
+            <input type="string" name="poliza" class="form-control form-control-sm" value="<%=ramplas.poliza%>">
+            <label for="poliza">N° de Póliza</label>
+        </div>
+
+        <div class="custom-file col-sm-4 md-form " >
+            <label>Fecha Vencimiento Seguro</label>
+        </div>
+
+        <div class="md-form">
+            <input type="date" name="vencseg" class="form-control" placeholder="Seleccionar Fecha" lang="es"
+                value="<%=ramplas.vencseg%> required">
+            <label data-error="wrong" data-success="right" for="vencseg"></label>
+        </div>
+
+        <div class="custom-file col-sm-9 md-form">
+            <input type="file" class="custom-file-input" name="docseguro" lang="es" value="<%=ramplas.docseguro%>">
+            <label class="custom-file-label text-left " for="docseguro">Seguro</label>
+        </div>
+
+        <div class="custom-file col-sm-5 md-form">
+            <label>Fecha Vencimiento Revisión Técnica</label>
+        </div>
+
+        <div class="md-form">
+            <input type="date" name="vencrt" class="form-control" placeholder="Seleccionar Fecha" lang="es"
+                value="<%=ramplas.vencrt%> required">
+            <label data-error="wrong" data-success="right" for="vencrt"></label>
+        </div>
+
+        <div class="custom-file col-sm-9  md-form">
+            <input type="file" class="custom-file-input" name="docrevision" lang="es" value="<%=ramplas.docrevision%>">
+            <label class="custom-file-label text-left" for="docrevision">Revisión</label>
+        </div>
+
+        <div class="custom-file col-sm-9  md-form">
+            <input type="file" class="custom-file-input" name="docpc" lang="es" value="<%=ramplas.docpc%>">
+            <label class="custom-file-label text-left" for="docpc">Permiso Circulación</label>
+        </div>
+
+        <div class="custom-file col-sm-9  md-form">
+            <input type="file" class="custom-file-input" name="docpadron" lang="es" value="<%=ramplas.docpadron%>">
+            <label class="custom-file-label text-left" for="docpadron">Padrón</label>
+        </div>
+
+        
+        
+        <!-- Modal footer-->
+        <div class="modal-footer container-fluid">
+            <a href="/master/chasis"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button></a>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+        <!--Fin Modal-->
+    </form>
+<%- include ('partials/_footer'); %>
