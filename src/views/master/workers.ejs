@@ -13,11 +13,6 @@
         Añadir nuevo Cliente
     </button>
 
-<!--        <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="image">
-        <button type="submit">Guardar</button>
-        </form>-->
-    
     <!-- Inicio Modal -->
     <div class="modal fade" id="modaltrabajadores" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
@@ -38,123 +33,14 @@
                     <form class="text-center p-3 row container-fluid" action="/addWorker" data-toggle="validator" method="POST">
 
                         <div class="md-form form-sm col-sm-4">
-                            <input type="string" style="text-transform:uppercase" name="rut" class="form-control form-control-sm" required>
-                            <label for="rut">Rut</label>
-                        </div>
-
-                        <div class="md-form form-sm col-sm-4">
                             <input type="string" style="text-transform:uppercase" name="nombre" class="form-control form-control-sm" required>
-                            <label for="nombre">Nombre o Razón Social</label>
+                            <label for="nombre">Nombre de usuario</label>
                         </div>
 
                         <div class="md-form form-sm col-sm-4">
-                            <input type="String" style="text-transform:uppercase" name="tipotrabajador" class="form-control form-control-sm" required>
-                            <label for="tipotrabajador">Tipo de Trabajador</label>
+                            <input type="string" name="contraseña" class="form-control form-control-sm" required>
+                            <label for="contraseña">Contraseña</label>
                         </div>
-                              
-                        <div class="custom-file col-sm-5 md-form">
-                            <label>Fecha de Nacimiento</label>
-                        </div>
-                        <div class="md-form">
-                            <input type="date" name="fnac" class="form-control" placeholder="Seleccionar Fecha"
-                                lang="es" required>
-                            <label data-error="wrong" data-success="right" for="fnac"></label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-4">
-                            <input type="text" style="text-transform:uppercase" name="region" class="form-control form-control-sm" required>
-                            <label for="region">Región</label>
-                        </div>
-
-
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="text" style="text-transform:uppercase" name="comuna" class="form-control form-control-sm"  required>
-                            <label for="comuna">Comuna</label>
-                        </div>
-
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="direccion" class="form-control form-control-sm" required>
-                            <label for="direccion">Dirección</label>
-                        </div>
-    
-                        <div class="md-form form-sm col-sm-6">
-                            <input type="number" name="celular" class="form-control form-control-sm">
-                            <label for="celular">N° Celular</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="email" class="form-control form-control-sm" required>
-                            <label for="email">Email</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-4">
-                            <input type="string" style="text-transform:uppercase" name="patente" class="form-control form-control-sm" maxlength="6" pattern="[A-Za-z]{4||2}[0-9]{2||4}" required>
-                            <label for="patente">Patente Camión a Cargo</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="sueldo" class="form-control form-control-sm" required>
-                            <label for="sueldo">Sueldo Bruto</label>
-                        </div>
-
-                        <div class="custom-file col-sm-5 md-form">
-                            <label>Fecha de Ingreso</label>
-                        </div>
-                        <div class="md-form">
-                            <input type="date" name="fingr" class="form-control" placeholder="Seleccionar Fecha"
-                                lang="es" required>
-                            <label data-error="wrong" data-success="right" for="fingr"></label>
-                        </div>
-                        
-                        <div class="custom-file col-sm-5 md-form">
-                            <label>Fecha Vencimiento Licencia de Conducir</label>
-                        </div>
-                        <div class="md-form">
-                            <input type="date" name="venclc" class="form-control" placeholder="Seleccionar Fecha"
-                                lang="es" required>
-                            <label data-error="wrong" data-success="right" for="venclc"></label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="afp" class="form-control form-control-sm" required>
-                            <label for="afp">AFP</label>
-                        </div>            
-                        
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="prevision" class="form-control form-control-sm" required>
-                            <label for="prevision">Previsión</label>
-                        </div>            
-                        
-                        <div class="md-form form-sm col-sm-6">
-                            <input type="string" name="banco" class="form-control form-control-sm">
-                            <label for="banco">Banco</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-6">
-                            <input type="string" name="tipo" class="form-control form-control-sm">
-                            <label for="tipo">Tipo de Cuenta</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-6">
-                            <input type="number" name="nrocuenta" class="form-control form-control-sm">
-                            <label for="nrocuenta">N° Cuenta</label>
-                        </div>
-                                
-                        <div class="custom-file col-sm-9  md-form">
-                            <input type="file" class="custom-file-input" name="doclicencia" lang="es">
-                            <label class="custom-file-label text-left" for="doclicencia">Licencia</label>
-                        </div>
-                        
-                        <div class="custom-file col-sm-9  md-form">
-                            <input type="file" class="custom-file-input" name="doccarnet" lang="es">
-                            <label class="custom-file-label text-left" for="doccarnet">Carnet</label>
-                        </div>
-
-                        <div class="custom-file col-sm-9  md-form">
-                            <input type="file" class="custom-file-input" name="doccontrato" lang="es">
-                            <label class="custom-file-label text-left" for="doccontrato">Contrato</label>
-                        </div>
-                        
 
                         
                         <!-- Modal footer-->
@@ -178,64 +64,25 @@
         <table class="table table-hover table-bordered table-striped table-condensed">
             <thead>
                 <tr>
-                    <th scope="col">Rut</th>
-                    <th scope="col">Nombre/Razón Social</th>
-                    <th scope="col">Tipo Empleado</th>
-                    <th scope="col">Fecha Nacimiento</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Celuar</th>
-                    <th scope="col">Patente Camión</th>
-                    <th scope="col">Sueldo</th>
-                    <th scope="col">Fecha de Ingreso</th>
-                    <th scope="col">Fecha Vencimiento Licencia</th>
-                    <th scope="col">AFP</th>
-                    <th scope="col">Previsión</th>
-                    <th scope="col">Banco</th>
-                    <th scope="col">Tipo de Cuenta</th>
-                    <th scope="col">N° Cuenta</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Contraseña</th>
                     <th scope="col">Opciones</th>
-                    <th scope="col">Licencia</th>
-                    <th scope="col">Carnet</th>
-                    <th scope="col">Contrato</th>
                 </tr>
             </thead>
             <tbody>
                 <% for(var i=0; i<trabajadores.length; i++){ %>
                 <tr>
-                    <td style="text-transform:uppercase"><%= trabajadores[i].rut  %></td>
                     <td style="text-transform:uppercase"><%= trabajadores[i].nombre  %></td>
-                    <td style="text-transform:uppercase"><%= trabajadores[i].tipotrabajador  %></td>
-                    <td style="text-transform:uppercase"><%= trabajadores[i].fnac  %></td>
-                    <td style="text-transform:uppercase"><%= trabajadores[i].region%>, <%= trabajadores[i].comuna%>, <%= trabajadores[i].direccion%></td>
-                    <td><%= trabajadores[i].email  %></td>
-                    <td><%= trabajadores[i].celular  %></td>
-                    <td style="text-transform:uppercase"><%= trabajadores[i].patente%></td>
-                    <td><%= trabajadores[i].sueldo  %></td>
-                    <td><%= trabajadores[i].fingr  %></td>
-                    <td><%= trabajadores[i].venclc  %></td>
-                    <td style="text-transform:uppercase"><%= trabajadores[i].afp  %></td>
-                    <td style="text-transform:uppercase"><%= trabajadores[i].prevision  %></td>
-                    <td style="text-transform:uppercase"><%= trabajadores[i].banco  %></td>
-                    <td style="text-transform:uppercase"><%= trabajadores[i].tipo  %></td>
-                    <td><%= trabajadores[i].nrocuenta  %></td>
-                    
+                    <td><%= trabajadores[i].contraseña  %></td>
                     <td>
                         <a href="/deleteWorker/<%= trabajadores[i]._id %>" class="btn btn-danger">Borrar</a>
                         <a href="/master/editWorker/<%= trabajadores[i]._id %>" class="btn btn-info">Editar</a>
                     </td>
-
-                    <td><%= trabajadores[i].doclicencia  %></td>
-                    <td><%= trabajadores[i].doccarnet  %></td>
-                    <td><%= trabajadores[i].doccontrato  %></td>
-
                 </tr>
                 <%}%>
             </tbody>
         </table>
     </div>    
-    
-    
-    
     
 </div>
 

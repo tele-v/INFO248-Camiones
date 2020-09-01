@@ -1,122 +1,16 @@
 <%- include ('partials/_masterHeader'); %>
     <form class="text-center p-3 row container-fluid" action="/editWorker/<%=trabajadores._id%>" data-toggle="validator" method="POST">
 
-        
-                        <div class="md-form form-sm col-sm-4">
-                            <input type="string" style="text-transform:uppercase" name="rut" class="form-control form-control-sm" value="<%=trabajadores.rut%>" required>
-                            <label for="rut">Rut</label>
-                        </div>
-
                         <div class="md-form form-sm col-sm-4">
                             <input type="string" style="text-transform:uppercase" name="nombre" class="form-control form-control-sm" value="<%=trabajadores.nombre%>" required>
-                            <label for="nombre">Nombre o Razón Social</label>
+                            <label for="nombre">Nombre de usuario</label>
                         </div>
 
                         <div class="md-form form-sm col-sm-4">
-                            <input type="String" style="text-transform:uppercase" name="tipotrabajador" class="form-control form-control-sm" value="<%=trabajadores.tipotrabajador%>"required>
-                            <label for="tipotrabajador">Tipo de Trabajador</label>
+                            <input type="string" name="contraseña"
+                                class="form-control form-control-sm" value="<%=trabajadores.contraseña%>" required>
+                            <label for="nombre">Contraseña</label>
                         </div>
-                              
-                        <div class="custom-file col-sm-5 md-form">
-                            <label>Fecha de Nacimiento</label>
-                        </div>
-                        <div class="md-form">
-                            <input type="date" name="fnac" class="form-control" placeholder="Seleccionar Fecha" lang="es" value="<%=trabajadores.fnac%>" required>
-                            <label data-error="wrong" data-success="right" for="fnac"></label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-4">
-                            <input type="text" style="text-transform:uppercase" name="region" class="form-control form-control-sm" value="<%=trabajadores.region%>" required>
-                            <label for="region">Región</label>
-                        </div>
-
-
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="text" style="text-transform:uppercase" name="comuna" class="form-control form-control-sm" value="<%=trabajadores.comuna%>" required>
-                            <label for="comuna">Comuna</label>
-                        </div>
-
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="direccion" class="form-control form-control-sm" value="<%=trabajadores.direccion%>" required>
-                            <label for="direccion">Dirección</label>
-                        </div>
-    
-                        <div class="md-form form-sm col-sm-6">
-                            <input type="number" name="celular" class="form-control form-control-sm" value="<%=trabajadores.celular%>">
-                            <label for="celular">N° Celular</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="email" class="form-control form-control-sm" value="<%=trabajadores.email%>" >
-                            <label for="email">Email</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-4">
-                            <input type="string" style="text-transform:uppercase" name="patente" class="form-control form-control-sm" maxlength="6" pattern="[A-Za-z]{4||2}[0-9]{2||4}" value="<%=trabajadores.patente%>" >
-                            <label for="patente">Patente Camión a Cargo</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="sueldo" class="form-control form-control-sm" value="<%=trabajadores.sueldo%>" required>
-                            <label for="sueldo">Sueldo Bruto</label>
-                        </div>
-
-                        <div class="custom-file col-sm-5 md-form">
-                            <label>Fecha de Ingreso</label>
-                        </div>
-                        <div class="md-form">
-                            <input type="date" name="fingr" class="form-control" placeholder="Seleccionar Fecha" lang="es" value="<%=trabajadores.fingr%>" >
-                            <label data-error="wrong" data-success="right" for="fingr"></label>
-                        </div>
-                        
-                        <div class="custom-file col-sm-5 md-form">
-                            <label>Fecha Vencimiento Licencia de Conducir</label>
-                        </div>
-                        <div class="md-form">
-                            <input type="date" name="venclc" class="form-control" placeholder="Seleccionar Fecha"   lang="es" value="<%=trabajadores.venclc%>" required>
-                            <label data-error="wrong" data-success="right" for="venclc"></label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="afp" class="form-control form-control-sm" value="<%=trabajadores.afp%>" >
-                            <label for="afp">AFP</label>
-                        </div>            
-                        
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="prevision" class="form-control form-control-sm" value="<%=trabajadores.prevision%>" required>
-                            <label for="prevision">Previsión</label>
-                        </div>            
-                        
-                        <div class="md-form form-sm col-sm-6">
-                            <input type="string" name="banco" class="form-control form-control-sm" value="<%=trabajadores.banco%>">
-                            <label for="banco">Banco</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-6">
-                            <input type="string" name="tipo" class="form-control form-control-sm" value="<%=trabajadores.tipo%>">
-                            <label for="tipo">Tipo de Cuenta</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-6">
-                            <input type="number" name="nrocuenta" class="form-control form-control-sm" value="<%=trabajadores.nrocuenta%>">
-                            <label for="nrocuenta">N° Cuenta</label>
-                        </div>
-                                
-                        <div class="custom-file col-sm-9  md-form">
-                            <input type="file" class="custom-file-input" name="doclicencia" lang="es" value="<%=trabajadores.doclicencia%>">
-                            <label class="custom-file-label text-left" for="doclicencia">Licencia</label>
-                        </div>
-                        
-                        <div class="custom-file col-sm-9  md-form">
-                            <input type="file" class="custom-file-input" name="doccarnet" lang="es" value="<%=trabajadores.doccarnet%>">
-                            <label class="custom-file-label text-left" for="doccarnet">Carnet</label>
-                        </div>
-
-                        <div class="custom-file col-sm-9  md-form">
-                            <input type="file" class="custom-file-input" name="doccontrato" lang="es" value="<%=trabajadores.doccontrato%>">
-                            <label class="custom-file-label text-left" for="doccontrato">Contrato</label>
-                        </div>
-        
         
         <!-- Modal footer-->
         <div class="modal-footer container-fluid">

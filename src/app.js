@@ -3,14 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const app = express();
-const multer = require('multer');
 
-const storage = multer.diskStorage({
-    destination: path.join(__dirname, 'public/uploads'),
-    filename: (req,file,cb) => {
-        cb(null, file.originalname);
-    }
-})
 //connect db
 
 mongoose.connect('mongodb://localhost/dbRutaChile')
@@ -32,23 +25,6 @@ app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false}));
 app.use(express.static('src/assets/'));
-/*app.use(multer({
-    storage,
-    dest: path.join(__dirname, 'public/uploads')
-}).single('image'));*/
-
-
-//Routes multer
-/*app.get('/', (req, res) => {
-    res.render('/master/trucks');
-})*/
-
-/*app.post('/upload', (req, res) =>{
-    console.log(req.file);
-    res.send('uploaded');
-})*/
-
-
 
 //indexRoutes
 

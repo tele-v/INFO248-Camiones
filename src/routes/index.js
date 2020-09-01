@@ -5,37 +5,22 @@ router.get('/', (req, res)=> {
   res.render('home');
 });
 
-router.get('/orders', (req, res)=> {
-  res.render('orders');
+router.get('/orders', async (req, res)=> {
+  const orders = await Orden.find();
+  res.render('orders', {
+    orders
+  });
 });
 
-router.get('/shipments', (req, res) => {
-  res.render('shipments');
+router.get('/shipments', async (req, res) => {
+  const shipments = await Viaje.find();
+  res.render('shipments', {
+    shipments
+  });
 });
 
 router.get('/master', (req, res) => {
   res.render('master');
-});
-
-router.get('/master/enterprises', async (req, res) => {
-    const empresas = await Empresa.find();
-  res.render('master/enterprises', {
-      empresas
-  });
-});
-
-router.get('/master/clients', async (req, res) => {
-    const clientes = await Cliente.find();
-  res.render('master/clients', {
-      clientes
-  });
-});
-
-router.get('/master/providers', async (req, res) => {
-    const proveedores = await Proveedor.find();
-  res.render('master/providers', {
-      proveedores
-  });
 });
 
 router.get('/master/trucks', async (req, res) => {
@@ -57,35 +42,6 @@ router.get('/master/workers', async (req, res) => {
   res.render('master/workers', {
       trabajadores
   });
-});
-
-router.get('/master/banks', async (req, res) => {
-    const bancos = await Banco.find();
-  res.render('master/banks', {
-      bancos
-  });
-});
-
-router.get('/master/ensurance', async (req, res) => {
-    const seguros = await Seguro.find();
-  res.render('master/ensurance', {
-      seguros
-  });
-});
-
-router.get('/payments', async (req, res) => {
-  const bancos = await Banco.find();
-  res.render('payments', {
-    bancos
-  });
-});
-
-router.get('/payments/paymentsEnterprises', (req, res) => {
-  res.render('payments/paymentsEnterprises');
-});
-
-router.get('/payments/paymentsProviders', (req, res) => {
-  res.render('payments/paymentsProviders');
 });
 
 router.get('/charges', async (req, res) => {
@@ -156,68 +112,6 @@ router.post('/editChasis/:id', async (req, res) => {
   res.redirect('/master/chasis')
 });
 
-/*CLIENTES*/
-
-const Cliente = require('../models/clientes.js');
-
-router.post('/addClient', async (req,res) =>{
-  const clientes = new Cliente(req.body);
-  await clientes.save();
-  res.redirect('master/clients');
-});
-
-router.get('/deleteClient/:id', async (req, res) => {
-  const { id } = req.params;
-  await Cliente.remove({ _id: id });
-  res.redirect('/master/clients');
-});
-
-
-router.get('/master/editClient/:id', async (req,res)=>{
-  const{ id } = req.params;
-  const clientes = await Cliente.findById(id);
-  res.render('master/editClient', {
-    clientes
-  });
-});
-
-router.post('/editClient/:id', async (req, res) => {
-  const { id } = req.params;
-  await Cliente.update({ _id: id }, req.body);
-  res.redirect('/master/clients')
-});
-
-/*PROVEEDORES*/
-
-const Proveedor = require('../models/proveedores.js');
-
-router.post('/addProvider', async (req,res) =>{
-  const proveedores = new Proveedor(req.body);
-  await proveedores.save();
-  res.redirect('master/providers');
-});
-
-router.get('/deleteProvider/:id', async (req, res) => {
-  const { id } = req.params;
-  await Proveedor.remove({ _id: id });
-  res.redirect('/master/providers');
-});
-
-
-router.get('/master/editProvider/:id', async (req,res)=>{
-  const{ id } = req.params;
-  const proveedores = await Proveedor.findById(id);
-  res.render('master/editProvider', {
-    proveedores
-  });
-});
-
-router.post('/editProvider/:id', async (req, res) => {
-  const { id } = req.params;
-  await Proveedor.update({ _id: id }, req.body);
-  res.redirect('/master/providers')
-});
-
 /*TRABAJADORES*/
 
 const Trabajador = require('../models/trabajadores.js');
@@ -249,101 +143,31 @@ router.post('/editWorker/:id', async (req, res) => {
   res.redirect('/master/workers')
 });
 
-/*EMPRESAS*/
-
-const Empresa = require('../models/empresas.js');
-
-router.post('/addEnterprise', async (req,res) =>{
-  const empresas = new Empresa(req.body);
-  await empresas.save();
-  res.redirect('master/enterprises');
-});
-
-router.get('/deleteEnterprise/:id', async (req, res) => {
-  const { id } = req.params;
-  await Empresa.remove({ _id: id });
-  res.redirect('/master/enterprises');
-});
-
-
-router.get('/master/editEnterprise/:id', async (req,res)=>{
-  const{ id } = req.params;
-  const empresas = await Empresa.findById(id);
-  res.render('master/editEnterprise', {
-    empresas
-  });
-});
-
-router.post('/editEnterprise/:id', async (req, res) => {
-  const { id } = req.params;
-  await Empresa.update({ _id: id }, req.body);
-  res.redirect('/master/enterprises')
-});
-
-/*BANCOS*/
-
-const Banco = require('../models/bancos.js');
-
-router.post('/addBank', async (req,res) =>{
-  const bancos = new Banco(req.body);
-  await bancos.save();
-  res.redirect('master/banks');
-});
-
-router.get('/deleteBank/:id', async (req, res) => {
-  const { id } = req.params;
-  await Banco.remove({ _id: id });
-  res.redirect('/master/banks');
-});
-
-
-router.get('/master/editBank/:id', async (req,res)=>{
-  const{ id } = req.params;
-  const bancos = await Banco.findById(id);
-  res.render('master/editBank', {
-    bancos
-  });
-});
-
-router.post('/editBank/:id', async (req, res) => {
-  const { id } = req.params;
-  await Banco.update({ _id: id }, req.body);
-  res.redirect('/master/banks')
-});
-
-/*SEGUROS*/
-
-const Seguro = require('../models/seguros.js');
-
-router.post('/addEnsurance', async (req,res) =>{
-  const seguros = new Seguro(req.body);
-  await seguros.save();
-  res.redirect('master/ensurance');
-});
-
-router.get('/deleteEnsurance/:id', async (req, res) => {
-  const { id } = req.params;
-  await Seguro.remove({ _id: id });
-  res.redirect('/master/ensurance');
-});
-
-
-router.get('/master/editEnsurance/:id', async (req,res)=>{
-  const{ id } = req.params;
-  const seguros = await Seguro.findById(id);
-  res.render('master/editEnsurance', {
-    seguros
-  });
-});
-
-router.post('/editEnsurance/:id', async (req, res) => {
-  const { id } = req.params;
-  await Seguro.update({ _id: id }, req.body);
-  res.redirect('/master/ensurance')
-});
-
 /*COBROS*/
 const Cobro = require('../models/cobros.js');
 
+router.post('/addcharge', async (req, res) => {
+  const cobros = new Cobro(req.body);
+  await cobros.save();
+  res.redirect('/charges');
+});
+
+/*VIAJES*/
+const Viaje = require('../models/cobros.js');
+
+router.post('/addShipment', async (req, res) => {
+  const viajes = new Viaje(req.body);
+  await viajes.save();
+  res.redirect('/shipments');
+});
+
+/*ORDENES DE TRANSPORTE*/
+const Orden = require('../models/orders.js');
+
+router.post('/addOrder', async (req, res) => {
+  const orders = new Orden(req.body);
+  await orders.save();
+  res.redirect('/orders');
+});
 
 module.exports = router;

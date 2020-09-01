@@ -8,12 +8,11 @@
 <div class="container-fluid">
     <h1>Cobros</h1>
 
-   <!-- Button trigger modal -->
+    <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalcobros">
-        Añadir nueva CXC
+        Añadir nuevo cobro
     </button>
 
-    
     <!-- Inicio Modal -->
     <div class="modal fade" id="modalcobros" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
@@ -30,63 +29,31 @@
 
                 <!-- Modal body-->
                 <div class="modal-body">
-                    <!--
-                    <form class="text-center p-3 row container-fluid" action="/addcharge" data-toggle="validator" method="POST">
-
+                    <form class="text-center p-3 row container-fluid" action="/addCharge" data-toggle="validator"
+                        method="POST">
 
                         <div class="md-form form-sm col-sm-4">
-                            <input type="string" style="text-transform:uppercase" name="nombre" class="form-control form-control-sm" required>
-                            <label for="nombre">Nombre o Razón Social</label>
-                        </div>
-
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="direccion" class="form-control form-control-sm" required>
-                            <label for="direccion">N° OT</label>
+                            <input type="string" name="nombre" class="form-control form-control-sm" required>
+                            <label for="nombre">Nombre</label>
                         </div>
 
                         <div class="md-form form-sm col-sm-4">
-                            <input type="string" style="text-transform:uppercase" name="representante" class="form-control form-control-sm" required>
-                            <label for="representante">Fecha OT</label>
+                            <input type="number" name="monto" class="form-control form-control-sm" required>
+                            <label for="monto">Monto</label>
                         </div>
-                        
+
                         <div class="md-form form-sm col-sm-4">
-                            <input type="string" style="text-transform:uppercase" name="representante" class="form-control form-control-sm" required>
-                            <label for="representante">Fecha de Pago</label>
+                            <input type="string" name="descripcion" class="form-control form-control-sm" required>
+                            <label for="descripcion">Descripción</label>
                         </div>
-                        
-                        <div class="md-form form-sm col-sm-6">
-                            <input type="number" name="celular" class="form-control form-control-sm">
-                            <label for="celular">Monto a Pagar</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="email" class="form-control form-control-sm" required>
-                            <label for="email">Saldo Restante</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="email" class="form-control form-control-sm" required>
-                            <label for="email">Abono</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="email" class="form-control form-control-sm" required>
-                            <label for="email">Estado</label>
-                        </div>
-                        
-                        <div class="md-form form-sm col-sm-3">
-                            <input type="string" style="text-transform:uppercase" name="email" class="form-control form-control-sm" required>
-                            <label for="email">Saldo Restante</label>
-                        </div>
-                        
-                        
-                        
+
                         <div class="modal-footer container-fluid">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary">Guardar</button>
                         </div>
-                        
-                </div>-->
+
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -101,6 +68,7 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Monto</th>
                     <th scope="col">Descripción</th>
+                    <th scope="col">Pendiente</th>
                 </tr>
             </thead>
             <tbody>
@@ -109,6 +77,7 @@
                     <td style="text-transform:uppercase"><%= cobros[i].nombre  %></td>
                     <td><%= cobros[i].monto  %></td>
                     <td style="text-transform:uppercase"><%= cobros[i].descripcion  %></td>
+                    <td><%= cobros[i].pendiente  %></td>
                 </tr>
                 <%}%>
             </tbody>
