@@ -6,7 +6,7 @@ router.get('/', (req, res)=> {
 });
 
 router.get('/home', (req, res)=> {
-  res.render('home');
+  res.render('home/home');
 });
 
 /*TEMP. USER REGISTRATION */
