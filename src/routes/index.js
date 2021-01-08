@@ -32,11 +32,18 @@ router.post('/register', async (req, res) => {
 router.get('/master', (req, res)=> {
   res.render('home/master/master');
 });
-
-router.get('/masterchasis', (req, res)=> {
-  res.render('home/master/chasis');
+/*CHASIS*/
+const Chasis = require('../models/chasis.js');
+router.get('/masterchasis', async (req, res)=> {
+  const chasis = await Chasis.find();
+  res.render('home/master/chasis',{chasis});
 });
-
+router.post('/addChasis', async (req,res) =>{
+  const chasis = new Chasis(req.body);
+  await chasis.save();
+  res.redirect('masterchasis');
+});
+/*TRUCKS*/
 const Truck = require('../models/trucks.js');
 router.get('/mastertrucks', async (req, res)=> {
   const trucks = await Truck.find();
