@@ -29,27 +29,8 @@
 
                 <!-- Modal body-->
                 <div class="modal-body">
-
-                    <form class="text-center p-3 row container-fluid" action="/addWorker" data-toggle="validator" method="POST">
-
-                        <div class="md-form form-sm col-sm-4">
-                            <input type="string" style="text-transform:uppercase" name="nombre" class="form-control form-control-sm" required>
-                            <label for="nombre">Nombre de usuario</label>
-                        </div>
-
-                        <div class="md-form form-sm col-sm-4">
-                            <input type="string" name="contraseña" class="form-control form-control-sm" required>
-                            <label for="contraseña">Contraseña</label>
-                        </div>
-
-                        
-                        <!-- Modal footer-->
-                        <div class="modal-footer container-fluid">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                        <!--Fin Modal-->
-                    </form>
+                    <!-- MODAL-->
+                    
                 </div>
             </div>
         </div>
@@ -57,15 +38,17 @@
 
     <!--Inicio Tabla-->
 
-    <!--Inicio Tabla Principal-->
-
     <div class="table-responsive">
 
         <table class="table table-hover table-bordered table-striped table-condensed">
             <thead>
                 <tr>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Contraseña</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">RUT</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Número de teléfono</th>
+                    <th scope="col">Dirección</th>
                     <th scope="col">Opciones</th>
                 </tr>
             </thead>

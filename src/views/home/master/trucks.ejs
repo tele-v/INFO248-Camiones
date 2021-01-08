@@ -21,7 +21,7 @@
 
                 <!-- Modal header-->
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Registrar Camiones</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Registrar Camión</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -29,21 +29,7 @@
 
                 <!-- Modal body-->
                 <div class="modal-body">
-
-                    <form class="text-center p-3 row container-fluid" action="/addTruck" data-toggle="validator" method="POST">
-
-                        <div class="md-form form-sm col-sm-4">
-                            <input type="string" style="text-transform:uppercase" name="patente" class="form-control form-control-sm" maxlength="6" pattern="[A-Za-z]{4||2}[0-9]{2||4}" required>
-                            <label for="patente">Patente</label>
-                        </div>
-
-                        <!-- Modal footer-->
-                        <div class="modal-footer container-fluid">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                        <!--Fin Modal-->
-                    </form>
+                    <!-- MODAL -->
                 </div>
             </div>
         </div>
@@ -59,6 +45,11 @@
             <thead>
                 <tr>
                     <th scope="col">Patente</th>
+                    <th scope="col">Tara</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Número de serie</th>
+                    <th scope="col">Disponibilidad</th>
                     <th scope="col">Opciones</th>
                 </tr>
             </thead>
