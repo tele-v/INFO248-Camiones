@@ -26,5 +26,20 @@ router.post('/register', async (req, res) => {
     res.status(500).send()
   }
 })
+/*TEMP. USER REGISTRATION*/
 
+/*MASTER*/
+router.get('/master', (req, res)=> {
+  res.render('home/master/master');
+});
+router.get('/masterchasis', (req, res)=> {
+  res.render('home/master/chasis');
+});
+router.get('/mastertrucks', (req, res)=> {
+  res.render('home/master/trucks');
+});
+router.get('/masterworkers', (req, res)=> {
+  res.render('home/master/workers');
+});
+/*MASTER*/
 module.exports = router;
