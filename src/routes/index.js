@@ -32,14 +32,25 @@ router.post('/register', async (req, res) => {
 router.get('/master', (req, res)=> {
   res.render('home/master/master');
 });
+
 router.get('/masterchasis', (req, res)=> {
   res.render('home/master/chasis');
 });
-router.get('/mastertrucks', (req, res)=> {
-  res.render('home/master/trucks');
+
+const Truck = require('../models/trucks.js');
+router.get('/mastertrucks', async (req, res)=> {
+  const trucks = await Truck.find();
+  res.render('home/master/trucks',{trucks});
 });
+router.post('/addTruck', async (req,res) =>{
+  const trucks = new Truck(req.body);
+  await trucks.save();
+  res.redirect('mastertrucks');
+});
+
 router.get('/masterworkers', (req, res)=> {
   res.render('home/master/workers');
 });
+
 /*MASTER*/
 module.exports = router;

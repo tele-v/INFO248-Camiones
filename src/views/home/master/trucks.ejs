@@ -21,7 +21,7 @@
 
                 <!-- Modal header-->
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Registrar Camión</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Añadir Camión</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -29,7 +29,36 @@
 
                 <!-- Modal body-->
                 <div class="modal-body">
-                    <!-- MODAL -->
+                    <form class="text-center p-3 row container-fluid" action="/addTruck" data-toggle="validator"
+                        method="POST">
+                        <input type="string" style="text-transform:uppercase" name="patente"
+                            class="form-control form-control-sm" maxlength="6" pattern="[A-Za-z]{4||2}[0-9]{2||4}"
+                            required>
+                        <label for="patente">Patente</label>
+                        <input type="string" style="text-transform:uppercase" name="tara"
+                            class="form-control form-control-sm" required>
+                        <label for="patente">Tara</label>
+                        <input type="string" style="text-transform:uppercase" name="marca"
+                            class="form-control form-control-sm" required>
+                        <label for="patente">Marca</label>
+                        <input type="string" style="text-transform:uppercase" name="modelo"
+                            class="form-control form-control-sm" required>
+                        <label for="patente">Modelo</label>
+                        <input type="string" style="text-transform:uppercase" name="ndeserie"
+                            class="form-control form-control-sm" required>
+                        <label for="patente">Número de serie</label>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch1" name="disponibilidad"
+                                value="false">
+                            <label class="custom-control-label" for="customSwitch1">Disponibilidad</label>
+                        </div>
+                        <!-- Modal footer-->
+                        <div class="modal-footer container-fluid">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                        <!--Fin Modal-->
+                    </form>
                 </div>
             </div>
         </div>
@@ -54,7 +83,21 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- FILL TABLE-->
+                <% for(var i=0; i<trucks.length; i++){ %>
+                <tr>
+                    <td style="text-transform:uppercase"><%= trucks[i].patente  %></td>
+                    <td style="text-transform:uppercase"><%= trucks[i].tara  %></td>
+                    <td style="text-transform:uppercase"><%= trucks[i].marca  %></td>
+                    <td style="text-transform:uppercase"><%= trucks[i].modelo  %></td>
+                    <td style="text-transform:uppercase"><%= trucks[i].ndeserie  %></td>
+                    <td>
+                        <!-- ACA MUESTRA LA DISPONIBILIDAD DEPENDIENDO DEL VALOR BOOLEANO-->
+                    </td>
+                    <td>
+                        <!-- BOTON EDITAR, BORRAR, CAMBIAR DISPONIBILIDAD-->
+                    </td>
+                </tr>
+                <%}%>
             </tbody>
         </table>
     </div>
