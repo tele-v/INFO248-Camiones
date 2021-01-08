@@ -7,6 +7,6 @@ Codigo y documentación para el trabajo realizado en la asignatura INFO248 Ingen
 2. Instalar mongoDB (Recomendación: https://www.mongodb.com/products/compass)
 3. Clonar/Descargar todo
 4. Desde el terminal dirigirse al directorio
-5. Instalar paquetes necesarios (npm i)
+5. Instalar paquetes necesarios (npm -i)
 6. Correr versión de desarrollo (npm run dev)
 7. Acceder desde el navegador en el puerto definido (localhost:3000)
