@@ -32,6 +32,7 @@ router.post('/register', async (req, res) => {
 router.get('/master', (req, res)=> {
   res.render('home/master/master');
 });
+
 /*CHASIS*/
 const Chasis = require('../models/chasis.js');
 router.get('/masterchasis', async (req, res)=> {
@@ -43,6 +44,7 @@ router.post('/addChasis', async (req,res) =>{
   await chasis.save();
   res.redirect('masterchasis');
 });
+
 /*TRUCKS*/
 const Truck = require('../models/trucks.js');
 router.get('/mastertrucks', async (req, res)=> {
@@ -55,9 +57,17 @@ router.post('/addTruck', async (req,res) =>{
   res.redirect('mastertrucks');
 });
 
-router.get('/masterworkers', (req, res)=> {
-  res.render('home/master/workers');
+/*WORKERS*/
+const Workers = require('../models/workers.js');
+router.get('/masterworkers', async(req, res)=> {
+  const workers = await Workers.find();
+  res.render('home/master/workers',{workers});
 });
-
+router.post('/addWorker', async (req,res) =>{
+  const workers = new Workers(req.body);
+  await workers.save();
+  res.redirect('masterworkers');
+});
 /*MASTER*/
+
 module.exports = router;

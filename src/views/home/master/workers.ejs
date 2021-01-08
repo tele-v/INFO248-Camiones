@@ -21,16 +21,40 @@
 
                 <!-- Modal header-->
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Registrar Cliente</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Añadir trabajador</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
                 <!-- Modal body-->
                 <div class="modal-body">
-                    <!-- MODAL-->
-                    
+                    <form class="text-center p-3 row container-fluid" action="/addWorker" data-toggle="validator"
+                        method="POST">
+                        <input type="string" style="text-transform:uppercase" name="nombre"
+                            class="form-control form-control-sm" required>
+                        <label for="patente">Nombre</label>
+                        <input type="string" style="text-transform:uppercase" name="apellidos"
+                            class="form-control form-control-sm" required>
+                        <label for="patente">Apellidos</label>
+                        <input type="string" style="text-transform:uppercase" name="RUT"
+                            class="form-control form-control-sm" required>
+                        <label for="patente">RUT</label>
+                        <input type="string" style="text-transform:uppercase" name="correo"
+                            class="form-control form-control-sm" required>
+                        <label for="patente">Correo</label>
+                        <input type="string" style="text-transform:uppercase" name="ndetelefono"
+                            class="form-control form-control-sm" required>
+                        <label for="patente">Número de teléfono</label>
+                        <input type="string" style="text-transform:uppercase" name="direccion"
+                            class="form-control form-control-sm" required>
+                        <label for="patente">Dirección</label>
+                        <!-- Modal footer-->
+                        <div class="modal-footer container-fluid">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                        <!--Fin Modal-->
+                    </form>
                 </div>
             </div>
         </div>
@@ -53,7 +77,20 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- FILL TABLE-->
+                <% for(var i=0; i<workers.length; i++){ %>
+                <tr>
+                    <td style="text-transform:uppercase"><%= workers[i].nombre  %></td>
+                    <td style="text-transform:uppercase"><%= workers[i].apellidos  %></td>
+                    <td style="text-transform:uppercase"><%= workers[i].RUT  %></td>
+                    <td style="text-transform:uppercase"><%= workers[i].correo  %></td>
+                    <td style="text-transform:uppercase"><%= workers[i].ndetelefono  %></td>
+                    <td style="text-transform:uppercase"><%= workers[i].direccion  %></td>
+                    <td>
+                        <!-- BOTON EDITAR, BORRAR-->
+                    </td>
+                </tr>
+                <%}%>
+            </tbody>
         </table>
     </div>    
     
