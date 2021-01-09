@@ -7,7 +7,8 @@ const WorkerSchema = new Schema({
     RUT: String,
     correo: String,
     ndetelefono: String,
-    direccion: String
+    direccion: String,
+    oficio: String
 })
 
 module.exports = mongoose.model('workers', WorkerSchema);

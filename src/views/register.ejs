@@ -27,12 +27,18 @@
                 <form class="form-container" action="/register" data-toggle="validator" method="POST">
                     <div class="form-group">
                         <label for="inputRut">RUT</label>
-                        <input type="text" class="form-control" id="inputRut" placeholder="Ingrese su RUT">
+                        <input type="text" class="form-control" id="inputRut" placeholder="Ingrese RUT">
                     </div>
                     <div class="form-group">
                         <label for="inputPassword1">Contraseña</label>
                         <input type="password" class="form-control" id="inputPassword">
                     </div>
+                    <label for="oficioFormControlSelect">Oficio</label>
+                    <select class="form-control" id="oficioFormControlSelect" name="oficio">
+                        <option>Administrador</option>
+                        <option>Mecánico</option>
+                        <option>Conductor</option>
+                    </select>
                     <button type="submit" class="btn btn-primary">Registrar Usuario</button>
                 </form>
             </div>
