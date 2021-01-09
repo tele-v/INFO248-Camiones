@@ -68,6 +68,24 @@ router.post('/addWorker', async (req,res) =>{
   await workers.save();
   res.redirect('masterworkers');
 });
+
+/*CLIENTS*/
+const Clients = require('../models/clients.js');
+router.get('/masterclients', async(req, res)=> {
+  const clients = await Clients.find();
+  res.render('home/master/clients',{clients});
+});
+router.post('/addClient', async (req,res) =>{
+  const clients = new Clients(req.body);
+  await clients.save();
+  res.redirect('masterclients');
+});
 /*MASTER*/
+
+/*ORDERS*/
+router.get('/orders', (req, res) => {
+  res.render('home/orders');
+});
+/*ORDERS*/
 
 module.exports = router;

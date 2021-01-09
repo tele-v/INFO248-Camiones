@@ -1,20 +1,20 @@
 <%- include ('../../partials/_masterheader'); %>
     <script>
-        $("#buttonWorkers").attr("aria-pressed", "true");
+        $("#buttonClients").attr("aria-pressed", "true");
     </script>
 
     <!-- Page Content -->
     <div class="container-fluid">
-        <h1>Trabajadores</h1>
+        <h1>Clientes</h1>
 
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalWorkers">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalClients">
             Añadir nuevo trabajador
         </button>
 
         <!-- Inicio Modal -->
-        <div class="modal fade" id="modalWorkers" tabindex="-1" role="dialog"
+        <div class="modal fade" id="modalClients" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -28,32 +28,32 @@
                     </div>
                     <!-- Modal body-->
                     <div class="modal-body">
-                        <form class="text-center p-3 row container-fluid" action="/addWorker" data-toggle="validator"
+                        <form class="text-center p-3 row container-fluid" action="/addClient" data-toggle="validator"
                             method="POST">
                             <input type="string" style="text-transform:uppercase" name="nombre"
                                 class="form-control form-control-sm" required>
                             <label>Nombre</label>
-                            <input type="string" style="text-transform:uppercase" name="apellidos"
-                                class="form-control form-control-sm" required>
-                            <label>Apellidos</label>
                             <input type="string" style="text-transform:uppercase" name="RUT"
                                 class="form-control form-control-sm" required>
                             <label>RUT</label>
+                            <input type="string" style="text-transform:uppercase" name="giro"
+                                class="form-control form-control-sm" required>
+                            <label>Giro</label>
+                            <input type="string" style="text-transform:uppercase" name="replegal"
+                                class="form-control form-control-sm" required>
+                            <label>Representante legal</label>
+                            <input type="string" style="text-transform:uppercase" name="rutreplegal"
+                                class="form-control form-control-sm" required>
+                            <label>Rut Representante legal</label>
                             <input type="string" style="text-transform:uppercase" name="correo"
                                 class="form-control form-control-sm" required>
                             <label>Correo</label>
-                            <input type="string" style="text-transform:uppercase" name="ndetelefono"
+                            <input type="string" style="text-transform:uppercase" name="telefono"
                                 class="form-control form-control-sm" required>
                             <label>Número de teléfono</label>
                             <input type="string" style="text-transform:uppercase" name="direccion"
                                 class="form-control form-control-sm" required>
                             <label>Dirección</label>
-                            <select class="form-control" id="oficioFormControlSelect" name="oficio">
-                                <option>Administrador</option>
-                                <option>Mecánico</option>
-                                <option>Conductor</option>
-                            </select>
-                            <label for="oficioFormControlSelect">Oficio</label>
                             <!-- Modal footer-->
                             <div class="modal-footer container-fluid">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -74,38 +74,42 @@
                 <thead>
                     <tr>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Apellidos</th>
                         <th scope="col">RUT</th>
+                        <th scope="col">Giro</th>
+                        <th scope="col">Representante legal</th>
+                        <th scope="col">RUT Rep. legal</th>
                         <th scope="col">Correo</th>
                         <th scope="col">Número de teléfono</th>
                         <th scope="col">Dirección</th>
-                        <th scope="col">Oficio</th>
                         <th scope="col">Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% for(var i=0; i<workers.length; i++){ %>
+                    <% for(var i=0; i<clients.length; i++){ %>
                         <tr>
                             <td style="text-transform:uppercase">
-                                <%= workers[i].nombre %>
+                                <%= clients[i].nombre %>
                             </td>
                             <td style="text-transform:uppercase">
-                                <%= workers[i].apellidos %>
+                                <%= clients[i].RUT %>
                             </td>
                             <td style="text-transform:uppercase">
-                                <%= workers[i].RUT %>
+                                <%= clients[i].giro %>
                             </td>
                             <td style="text-transform:uppercase">
-                                <%= workers[i].correo %>
+                                <%= clients[i].replegal %>
                             </td>
                             <td style="text-transform:uppercase">
-                                <%= workers[i].ndetelefono %>
+                                <%= clients[i].rutreplegal %>
                             </td>
                             <td style="text-transform:uppercase">
-                                <%= workers[i].direccion %>
+                                <%= clients[i].correo %>
                             </td>
                             <td style="text-transform:uppercase">
-                                <%= workers[i].oficio %>
+                                <%= clients[i].telefono %>
+                            </td>
+                            <td style="text-transform:uppercase">
+                                <%= clients[i].direccion %>
                             </td>
                             <td>
                                 <!-- BOTON EDITAR, BORRAR-->
