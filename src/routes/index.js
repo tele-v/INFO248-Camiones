@@ -1,6 +1,8 @@
 const express = require('express');
+const bcrypt = require('bcrypt');
 const router = express.Router();
 
+/*LOGIN*/
 router.get('/', (req, res)=> {
   res.render('login');
 });
@@ -9,24 +11,54 @@ router.get('/home', (req, res)=> {
   res.render('home/home');
 });
 
-/*TEMP. USER REGISTRATION */
+const User = require('../models/user.js');
+
+/*USER LOGIN CHECK*/
+router.post("/login", async(req, res) => {
+  console.log('a');
+  const user = await User.findOne({rut: req.body.rut}, (err) =>{
+    if (err){
+      res.status(500).send();
+    }
+  });
+
+  console.log(user.password);
+  console.log(req.body.password);
+
+  try{
+    var good_pass = await bcrypt.compareSync(req.body.password, user.password);
+  }
+  catch{
+    
+  }
+  console.log(good_pass)
+  if (good_pass){
+    res.redirect('/home');
+  }
+  console.log('-----');
+});
+  
+
+/*USER REGISTER*/
 router.get('/register', (req, res)=> {
   res.render('register');
 });
-
-router.post('/register', async (req, res) => {
+router.post('/registeruser', async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
-    const user = { rut: req.body.rut, password: hashedPassword }
+    const user = new User({ 
+      rut: req.body.rut,
+      password: hashedPassword,
+      oficio: req.body.oficio 
+      });
     await user.save();
-    res.status(201).send()
-    res.redirect('login');
+    //res.status(201).send()
+    res.redirect('/');
   }
   catch {
     res.status(500).send()
   }
 })
-/*TEMP. USER REGISTRATION*/
 
 /*MASTER*/
 router.get('/master', (req, res)=> {
